@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
+use App\User;
 
 class AuthController extends Controller
 {
@@ -15,7 +16,7 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('jwt', ['except' => ['login']]);
+        $this->middleware('jwt', ['except' => ['login','signup']]);
     }
 
     /**
@@ -82,8 +83,9 @@ class AuthController extends Controller
         ]);
     }
 
-    public function payload()
+    public function signup(Request $request)
     {
-        return auth()->payload();
+        User::create($request->all());
+        return $this->login($request);
     }
 }

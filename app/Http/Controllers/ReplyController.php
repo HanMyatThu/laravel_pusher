@@ -10,6 +10,16 @@ use Illuminate\Http\Response;
 
 class ReplyController extends Controller
 {
+     /**
+     * Add Middleware
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('jwt');
+    }
+
     /**
      * Display a listing of the resource.
      *
