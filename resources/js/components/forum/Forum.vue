@@ -10,8 +10,10 @@
 
                </question>
            </v-flex>
+
+
            <v-flex xs4>
-               <h1>side bar</h1>
+               <app-side-bar></app-side-bar>
            </v-flex>
        </v-layout>
    </v-container>
@@ -19,6 +21,7 @@
 
 <script>
 import question from './Question'
+import AppSideBar from './AppSideBar'
 import AuthHeader from '../../Helpers/AuthHeader';
 export default {
     data() {
@@ -26,7 +29,7 @@ export default {
             questions: null
         }
     },
-    components: {question},
+    components: {question , AppSideBar},
     created() {
         const headers = AuthHeader.getHeaders();
         axios.get('/api/questions', { headers })

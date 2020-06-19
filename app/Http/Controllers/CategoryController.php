@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\CategoryResource;
 use App\Model\Category;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -79,7 +80,7 @@ class CategoryController extends Controller
             'slug' => str_slug($request->name)
         ]
         );
-        return response('updated', Response::HTTP_ACCEPTED);
+        return response(new CategoryResource($category), Response::HTTP_ACCEPTED);
     }
 
     /**

@@ -1,5 +1,5 @@
 <template>
-    <v-card>
+    <v-card class='mt-3'>
         <v-card-title>
             <div>
                 <h3 class="headling mb-0">
