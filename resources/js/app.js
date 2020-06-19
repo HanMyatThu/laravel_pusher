@@ -9,6 +9,9 @@ window.User = User;
 
 window.EventBus = new Vue();
 
+import md from 'marked'
+window.md = md;
+
 Vue.component('AppHome', require('./components/AppHome.vue').default);
 import router from './Router/router.js';
 
