@@ -9,6 +9,9 @@
             :data=question
         >
         </show-question>
+        <replies :question='question'></replies>
+
+        <new-reply :Questionslug='question.slug'></new-reply>
     </div>
 </template>
 
@@ -16,10 +19,14 @@
 import AuthHeader from '../../Helpers/AuthHeader';
 import showQuestion from './showQuestion';
 import editQuestion from './editQuestion';
+import Replies from '../reply/replies'
+import newReply from '../reply/newReply';
 export default {
     components: {
         showQuestion,
-        editQuestion
+        editQuestion,
+        Replies,
+        newReply
     },
     data() {
         return {
